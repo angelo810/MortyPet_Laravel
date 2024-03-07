@@ -6,13 +6,15 @@ use App\Models\Breed;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Pet;
+use Livewire\WithFileUploads;
 
 class Pets extends Component
 {
+    use WithFileUploads;
     use WithPagination;
 
 	protected $paginationTheme = 'bootstrap';
-    public $selected_id, $keyWord, $name, $age, $description, $breed_id, $image_url, $available;
+    public $selected_id, $keyWord, $name, $age, $description, $breed_id, $image_url, $available, $image;
 
     public function render()
     {
@@ -49,14 +51,16 @@ class Pets extends Component
     {
         $this->validate([
 		'name' => 'required',
+        'image' => 'image|max:2048',
         ]);
 
+        $imageUrl = $this->image->store('images', 'public');
         Pet::create([
 			'name' => $this-> name,
 			'age' => $this-> age,
 			'description' => $this-> description,
 			'breed_id' => $this-> breed_id,
-			'image_url' => $this-> image_url,
+			'image_url' => $imageUrl,
 			'available' => $this-> available
         ]);
 

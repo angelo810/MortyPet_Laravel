@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('Petmatch', 'Petmatch') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -32,21 +32,24 @@
                     <!-- Left Side Of Navbar -->
 					@auth()
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="{{ url('/home') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Home</a>
+                        </li>
 						<!--Nav Bar Hooks - Do not delete!!-->
 						<li class="nav-item">
-                            <a href="{{ url('/ShelterPets') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> ShelterPets</a> 
+                            <a href="{{ url('/ShelterPets') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Refugio Mascota</a>
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/Requests') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Requests</a> 
+                            <a href="{{ url('/Requests') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Adopcion</a>
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/Shelters') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Shelters</a> 
+                            <a href="{{ url('/Shelters') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Refugios</a>
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/Breeds') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Breeds</a> 
+                            <a href="{{ url('/Breeds') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Razas</a>
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/Pets') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Pets</a> 
+                            <a href="{{ url('/Pets') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Mascotas</a>
                         </li>
                     </ul>
 					@endauth()

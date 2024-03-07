@@ -4,7 +4,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createDataModalLabel">Create New Pet</h5>
+                <h5 class="modal-title" id="createDataModalLabel">Crear Nueva Mascota</h5>
                 <button wire:click.prevent="cancel()" type="button" class="btn-close" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
@@ -12,21 +12,21 @@
                 <form>
                     <div class="form-group">
                         <label for="name"></label>
-                        <input wire:model="name" type="text" class="form-control" id="name" placeholder="Name">
+                        <input wire:model="name" type="text" class="form-control" id="name" placeholder="Nombre">
                         @error('name')
                             <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="age"></label>
-                        <input wire:model="age" type="text" class="form-control" id="age" placeholder="Age">
+                        <input wire:model="age" type="text" class="form-control" id="age" placeholder="Edad">
                         @error('age')
                             <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="description"></label>
-                        <input wire:model="description" type="text" class="form-control" id="description"
+                        <input wire:model="description" type="text" class="form-control" id="descripcion"
                             placeholder="Description">
                         @error('description')
                             <span class="error text-danger">{{ $message }}</span>
@@ -42,17 +42,19 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="image_url"></label>
-                        <input wire:model="image_url" type="text" class="form-control" id="image_url"
-                            placeholder="Image Url">
-                        @error('image_url')
-                            <span class="error text-danger">{{ $message }}</span>
-                        @enderror
+                        <label for="image"></label>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input wire:model="image" type="file" class="form-control" id="image" accept="image/*">
+                            @error('image')
+                                <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="available"></label>
                         <input wire:model="available" type="text" class="form-control" id="available"
-                            placeholder="Available">
+                            placeholder="Disponibilidad">
                         @error('available')
                             <span class="error text-danger">{{ $message }}</span>
                         @enderror
@@ -61,8 +63,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
-                <button type="button" wire:click.prevent="store()" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" wire:click.prevent="store()" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>
